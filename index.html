@@ -6,7 +6,28 @@
     <title>Unity WebGL Player | questionairre</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+    <script>
+      if (document.addEventListener)
+      {
+        document.addEventListener('fullscreenchange', exitHandler, false);
+        document.addEventListener('mozfullscreenchange', exitHandler, false);
+        document.addEventListener('MSFullscreenChange', exitHandler, false);
+        document.addEventListener('webkitfullscreenchange', exitHandler, false);
+      }
+  
+      function exitHandler()
+      {
+        if (document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement !== null)
+        {
+          unityInstance.SendMessage('UserInfo', 'TogglePause', 'pause');
+        }
+        else if (!document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement)
+        {
+          unityInstance.SendMessage('UserInfo', 'TogglePause', 'unpause');
+        }
+      }
+  </script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
