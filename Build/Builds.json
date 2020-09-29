@@ -1,7 +1,7 @@
 {
-"companyName": "DefaultCompany",
-"productName": "questionairre",
-"productVersion": "0.1",
+"companyName": "University of Leeds",
+"productName": "Mouse sensitivity survey",
+"productVersion": "1.00",
 "dataUrl": "Builds.data.unityweb",
 "wasmCodeUrl": "Builds.wasm.code.unityweb",
 "wasmFrameworkUrl": "Builds.wasm.framework.unityweb",
